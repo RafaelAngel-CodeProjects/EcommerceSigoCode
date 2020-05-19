@@ -1,0 +1,41 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                How to enable GZIp for SVG (old IIS).
+                <br />
+                If you don't have any problem with SVG you needn't do anything.
+                <br />
+                Read additional information about it <a href="http://stackoverflow.com/questions/14410331/cant-get-iis7-to-gzip-font-face-font-files/23940235#23940235" target="blank">http://stackoverflow.com/questions/14410331/cant-get-iis7-to-gzip-font-face-font-files/23940235#23940235</a>.
+            </p>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                We did another plugin for the tag <b>hreflang</b>.<br />
+                Download and try it <a href="https://www.foxnetsoft.com/nopmultilanguagesitemap" target="blank">https://www.foxnetsoft.com/nopmultilanguagesitemap</a>.
+
+            </p>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                You can disable minification for Admins.<br />
+                This feature will help you to debug your store online, but another customers and Google bots will see minified version of your site.
+            </p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="PassMinificationForAdmin" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="PassMinificationForAdmin" />
+                    <span asp-validation-for="PassMinificationForAdmin"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

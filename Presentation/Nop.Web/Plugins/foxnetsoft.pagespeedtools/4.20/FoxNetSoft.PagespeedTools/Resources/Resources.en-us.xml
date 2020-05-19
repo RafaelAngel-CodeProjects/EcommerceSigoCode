@@ -1,0 +1,405 @@
+﻿<Language Name="English" IsRightToLeft="false">
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.IsRegisted">
+    <Value>Registered version.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.IsNoRegisted">
+    <Value>Unregistered version. This version has only one limitation. It will work 15 days.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.IsExpired">
+    <Value>Your license has expired, you should renew the license with a 50% discount.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.StoreUrl">
+    <Value>Website address (for registration)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.StoreUrl.Hint">
+    <Value>Website address (for registration).</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.showDebugInfo">
+    <Value>Enable Debugging</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.showDebugInfo.Hint">
+    <Value>Write debugging information into file. In ~/App_Data/ folder.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.SerialNumber">
+    <Value>Serial number</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.SerialNumber.Hint">
+    <Value>Serial number.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Enable">
+    <Value>Enable plugin</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Enable.Hint">
+    <Value>Enable/Disable plugin.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMinifyPicture">
+    <Value>Enable picture optimization</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMinifyPicture.Hint">
+    <Value>Enable picture optimization.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.ServeImagesInNextGenFormats">
+    <Value>Serve Images in Next-Gen formats</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.ServeImagesInNextGenFormats.Hint">
+    <Value>Plugin will create webp-image for each pictures and use HTML tag picture for it.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.LastPictureOptimizationDateTimeUtc">
+    <Value>Last datetime of picture optimization</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.LastPictureOptimizationDateTimeUtc.Hint">
+    <Value>Last datetime of picture optimization.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PictureFolders">
+    <Value>Extra folders with pictures</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PictureFolders.Hint">
+    <Value>You can set a list of folders with images for optimization. Plugin tries to minify pictures from </Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.RemoveHtmlComments">
+    <Value>Remove all HTML comments</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.RemoveHtmlComments.Hint">
+    <Value>
+      Gets or sets a flag for whether to remove all HTML comments except conditional, noindex, KnockoutJS containerless comments and AngularJS 1.X comment directives.
+    </Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.RemoveHtmlCommentsFromScriptsAndStyles">
+    <Value>Remove HTML comments from scripts and styles</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.RemoveHtmlCommentsFromScriptsAndStyles.Hint">
+    <Value>
+      Gets or sets a flag for whether to remove HTML comments from scripts and styles.
+    </Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.RemoveCdataSectionsFromScriptsAndStyles">
+    <Value>Remove CDATA sections from scripts and styles</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.RemoveCdataSectionsFromScriptsAndStyles.Hint">
+    <Value>
+      Gets or sets a flag for whether to remove CDATA sections from scripts and styles.
+    </Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.UseShortDoctype">
+    <Value>Use short DOCTYPE</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.UseShortDoctype.Hint">
+    <Value>
+      Gets or sets a flag for whether to use short DOCTYPE.
+    </Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.RemoveOptionalEndTags">
+    <Value>Remove optional end tags</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.RemoveOptionalEndTags.Hint">
+    <Value>
+      Gets or sets a flag for whether to remove optional end tags.
+    </Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.IgnoredUrls">
+    <Value>Ignored Urls</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.IgnoredUrls.Hint">
+    <Value>Don't minify these Ignored Urls. Example. ~/Admin/Plugin/ConfigureMiscPlugin</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMinifyHtml">
+    <Value>Minify Html</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMinifyHtml.Hint">
+    <Value>Minify Html code.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.DisableMinifyHtmlPageSize">
+    <Value>Disable minify Html for pages with size (in bytes)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.DisableMinifyHtmlPageSize.Hint">
+    <Value>Maximum size of the response (in bytes), in excess of which disables the minification of markup. O - Default, for all pages.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableOptimizationCSS">
+    <Value>Enable Optimization of CSS styles</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableOptimizationCSS.Hint">
+    <Value>Enable Optimization of CSS styles in external .css files. Plugin will create external minify .css files.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMoveCSSStyle">
+    <Value>Move CSS style to section</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMoveCSSStyle.Hint">
+    <Value>Move CSS style to section of HTML.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.MoveExternalCSSStyle">
+    <Value>Move only external css links to 'footer' section</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.MoveExternalCSSStyle.Hint">
+    <Value>Move only external css links to 'footer' section. Inline CSS style will leave on its place.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CssInlineMaxBytes">
+    <Value>The maximum size of inlined CSS file</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CssInlineMaxBytes.Hint">
+    <Value>This is the maximum size in bytes of any CSS file that will be inlined. 0 - Unlimited.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableInlineCSSStyleInHtmlBody">
+    <Value>Inline CSS styles into Html document</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableInlineCSSStyleInHtmlBody.Hint">
+    <Value>Inline CSS styles into Html document.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.NotInlineCSSStyles">
+    <Value>Don't inline css styles (Urls)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.NotInlineCSSStyles.Hint">
+    <Value>The list of css styles Urls, which will not inline in Html document. Use this feature for the main css file of your site.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableLoadAsyncCSSStyle">
+    <Value>Enable Async Loading of css styles</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableLoadAsyncCSSStyle.Hint">
+    <Value>Enable Async Loading of css styles from external .css files.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.NotLoadedAsyncCSSStyles">
+    <Value>Excluse css styles (Urls)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.NotLoadedAsyncCSSStyles.Hint">
+    <Value>The list of css styles Urls, which will not load async.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CriticalPathCSS">
+    <Value>Critical CSS Style (max 2000)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CriticalPathCSS.Hint">
+    <Value>This CSS style will be include to 'head' section for each page. The maximum size is 2000 chars.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableOptimizationJS">
+    <Value>Enable Optimization of JavaScript</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableOptimizationJS.Hint">
+    <Value>Enable Optimization of JavaScript. Plugin will create external minify JS files.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMoveJS">
+    <Value>Move JS scripts to section</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMoveJS.Hint">
+    <Value>Move JS scripts to section of HTML.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.JSInlineMaxBytes">
+    <Value>The maximum size of inlined JS scripts</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.JSInlineMaxBytes.Hint">
+    <Value>This is the maximum size in bytes of any JS scripts that will be inlined. 0 - Unlimited.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableInlineJSInHtmlBody">
+    <Value>Inline JS scripts into Html document</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableInlineJSInHtmlBody.Hint">
+    <Value>Inline JS scripts into Html document.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.NotInlineJSs">
+    <Value>Don't inline JS scripts Urls</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.NotInlineJSs.Hint">
+    <Value>The list of JS scripts Urls, which will not inline in Html document. Use this feature for the main JS scripts of your site.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableOptimizationFonts">
+    <Value>Enable Optimization of Fonts</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableOptimizationFonts.Hint">
+    <Value>Enable Optimization of Fonts.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMoveFonts">
+    <Value>Move loading fonts to section</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableMoveFonts.Hint">
+    <Value>Move loading fonts to section of HTML.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableLoadAsyncFonts">
+    <Value>Enable Async Loading of Fonts</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableLoadAsyncFonts.Hint">
+    <Value>Enable Async Loading of Fonts.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PassMinificationForAdmin">
+    <Value>Pass minification for Admins</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PassMinificationForAdmin.Hint">
+    <Value>Pass minification for Admins. This feature will help developers to debug your store online. Another customers and Google bots will see minified pages.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.ClearLogFile">
+    <Value>Clear the log-file</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.GetLogFile">
+    <Value>Download the log-file</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Configure">
+    <Value>Pagespeed module configuration</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Updated">
+    <Value>The settings have been updated successfully.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PictureUrl">
+    <Value>Picture Url</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PictureUrl.Hint">
+    <Value>If you need to minify one picture you can do it. Provide the picture Url. Example. 'http://www.yoursite.com/picture.jpg'</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PictureUrl.Button">
+    <Value>Minify</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskPicture.Button">
+    <Value>Run task</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskPicture.Hint">
+    <Value>Minify all pictures. Plugin will do it by scheduler. If you want to do it at once you can run the task manually.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CssStyleUrl">
+    <Value>CSS Style Url</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CssStyleUrl.Hint">
+    <Value>If you need to minify one css style file you can do it. &lt;br /&gt;
+    Provide the css style Url. &lt;br /&gt;
+    Example:&lt;br /&gt;
+    'http://www.yoursite.com/style.min.css' or 'http://www.yoursite.com/style.css'. &lt;br /&gt;
+    Plugin will create a new minified css file with the new name. &lt;br /&gt;
+    Example:&lt;br /&gt;
+      1. You want to minify the file 'http://www.yoursite.com/style.css'&lt;br /&gt;
+      Plugin will create the new file  'http://www.yoursite.com/style.min.css'&lt;br /&gt;
+      2. You want to minify the file 'http://www.yoursite.com/style.min.css'&lt;br /&gt;
+      Plugin will update existing file  'http://www.yoursite.com/style.min.css'&lt;br /&gt;
+    </Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CssStyleUrl.Button">
+    <Value>Minify</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskCssStyle.Button">
+    <Value>Run task</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskCssStyle.Hint">
+    <Value>Minify all css styles. Plugin will do it by scheduler. If you want to do it at once you can run the task manually.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.JavaScriptUrl">
+    <Value>JavaScript Url</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.JavaScriptUrl.Hint">
+    <Value>
+      If you need to minify one js file you can do it. &lt;br /&gt;
+      Provide the JavaScript Url. &lt;br /&gt;
+      Example:&lt;br /&gt;
+      'http://www.yoursite.com/jquery.min.js' or 'http://www.yoursite.com/jquery.js'. &lt;br /&gt;
+      Plugin will create a new minified js with the new name. &lt;br /&gt;
+      Example:&lt;br /&gt;
+      1. You want to minify the file 'http://www.yoursite.com/jquery.js'&lt;br /&gt;
+      Plugin will create the new file  'http://www.yoursite.com/jquery.min.js'&lt;br /&gt;
+      2. You want to minify the file 'http://www.yoursite.com/jquery.min.js'&lt;br /&gt;
+      Plugin will update existing file  'http://www.yoursite.com/jquery.min.js'&lt;br /&gt;
+    </Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.JavaScriptUrl.Button">
+    <Value>Minify</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskJavaScript.Button">
+    <Value>Run task</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskJavaScript.Hint">
+    <Value>Minify all js file. Plugin will do it by scheduler. If you want to do it at once you can run the task manually.</Value>
+  </LocaleResource>
+  <LocaleResource Name="enums.FoxNetSoft.Plugin.Misc.Pagespeed.ScriptPosition.None">
+    <Value>Not move</Value>
+  </LocaleResource>
+  <LocaleResource Name="enums.FoxNetSoft.Plugin.Misc.Pagespeed.ScriptPosition.Head">
+    <Value>Head</Value>
+  </LocaleResource>
+  <LocaleResource Name="enums.FoxNetSoft.Plugin.Misc.Pagespeed.ScriptPosition.Footer">
+    <Value>Footer</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableCDN">
+    <Value>Enable CDN</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableCDN.Hint">
+    <Value>Enable/Disable CDN.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableCDNPicture">
+    <Value>Enable CDN for pictures</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableCDNPicture.Hint">
+    <Value>Enable CDN for pictures.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CDNPictureUrl">
+    <Value>CDN URL for pictures</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CDNPictureUrl.Hint">
+    <Value>CDN URL for pictures.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableCDNCSS">
+    <Value>Enable CDN for CSS</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableCDNCSS.Hint">
+    <Value>Enable CDN for CSS.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CDNCSSUrl">
+    <Value>CDN URL for CSS</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CDNCSSUrl.Hint">
+    <Value>CDN URL for CSS.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableCDNJS">
+    <Value>Enable CDN for JS</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableCDNJS.Hint">
+    <Value>Enable CDN for JS.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CDNJSUrl">
+    <Value>CDN URL for JS</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CDNJSUrl.Hint">
+    <Value>CDN URL for JS.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.Pictures">
+    <Value>Pictures</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.HTML">
+    <Value>HTML</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.CSS">
+    <Value>CSS</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.Fonts">
+    <Value>Fonts</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.JavaScript">
+    <Value>JavaScript</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.CDN">
+    <Value>CDN</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.Advanced">
+    <Value>Advanced</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.License">
+    <Value>Licence</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Is64BitProcess">
+    <Value>Error!!! Plugin can't minify pictures because you use x86 IIS application pool!</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Menu.Brand">
+    <Value>FoxNetSoft</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Menu.Name">
+    <Value>Google Pagespeed</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableGZip">
+    <Value>Enable GZip for IIS (recommend)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableGZip.Hint">
+    <Value>Enable GZip for IIS (recommend). We advice to enable GZip in IIS, IIS will compress all files, but if your hosting provider doesn't want to enable it, you can compress your pages yourself. But you can't compress external static files (.css and .js).</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableTaghreflang">
+    <Value>Enable tag hreflang</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableTaghreflang.Hint">
+    <Value>Add tag hreflang in each page.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableHtmlMinification">
+    <Value>Html minification (native nopcommerce)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.FoxNetSoft.Plugin.Misc.Pagespeed.EnableHtmlMinification.Hint">
+    <Value>Don't use my and native nopcommerce minification in one time! Allows you to minify HTML pages as well as compress them, thereby increasing the download speed. Please note that after applying this setting, you need to restart the application.</Value>
+  </LocaleResource>
+</Language>

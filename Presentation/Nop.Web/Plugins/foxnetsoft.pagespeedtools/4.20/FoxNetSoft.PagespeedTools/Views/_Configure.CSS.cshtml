@@ -1,0 +1,206 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#EnableOptimizationCSS").click(toggleOptimizationCSS);
+            $("#EnableInlineCSSStyleInHtmlBody").click(toggleInlineCSSStyleInHtmlBody);
+            $("#EnableLoadAsyncCSSStyle").click(toggleLoadAsyncCSSStyle);
+
+
+            $("#EnableMoveCSSStyle").change(function () {
+                var selectedItem = $(this).val();
+                if (selectedItem == "@(FoxNetSoft.Plugin.Misc.Pagespeed.ScriptPosition.Footer)"
+                    && $('#EnableOptimizationCSS').is(':checked')) {
+                    $('#pnlMoveExternalCSSStyle').show();
+                }
+                else {
+                    $('#pnlMoveExternalCSSStyle').hide();
+                }
+            }).change();
+
+            toggleOptimizationCSS();
+            toggleLoadAsyncCSSStyle();
+
+        });
+
+        function toggleOptimizationCSS() {
+            if ($('#EnableOptimizationCSS').is(':checked')) {
+                $('#pnCSSstylespanel').show();
+                $("#EnableMoveCSSStyle").change();
+            }
+            else {
+                $('#pnCSSstylespanel').hide();
+                $('#pnlMoveExternalCSSStyle').hide();
+            }
+            toggleLoadAsyncCSSStyle();
+            toggleInlineCSSStyleInHtmlBody();
+        }
+        function toggleLoadAsyncCSSStyle() {
+            if ($('#EnableOptimizationCSS').is(':checked')
+                && $('#EnableLoadAsyncCSSStyle').is(':checked')) {
+                $('#pncNotLoadedAsyncCSSStyles').show();
+            }
+            else {
+                $('#pncNotLoadedAsyncCSSStyles').hide();
+            }
+        }
+        function toggleInlineCSSStyleInHtmlBody() {
+            if ($('#EnableOptimizationCSS').is(':checked')
+                && $('#EnableInlineCSSStyleInHtmlBody').is(':checked')) {
+                $('#pncNotInlineCSSStyles, #pnnCssInlineMaxBytes').show();
+            }
+            else {
+                $('#pncNotInlineCSSStyles, #pnnCssInlineMaxBytes').hide();
+            }
+        }
+
+</script>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Optimization of CSS styles</p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableOptimizationCSS" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableOptimizationCSS" />
+                    <span asp-validation-for="EnableOptimizationCSS"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" id="pnCSSstylespanel">
+        <div class="panel-body">
+            <div class="form-group" id="pncCriticalPathCSS">
+                <div class="col-md-3">
+                    <nop-override-store-checkbox asp-for="CriticalPathCSS_OverrideForStore" asp-input="CriticalPathCSS" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                    <nop-label asp-for="CriticalPathCSS" />
+                </div>
+                <div class="col-md-9">
+                    <p>If you want to use 'Critical Path CSS' we advise you to use this service <a href="https://jonassebastianohlsson.com/criticalpathcssgenerator/" target="blank">https://jonassebastianohlsson.com/criticalpathcssgenerator/</a>.</p>
+                    <nop-textarea asp-for="CriticalPathCSS" />
+                    <span asp-validation-for="CriticalPathCSS"></span>
+                </div>
+            </div>
+            <div class="form-group advanced-setting" id="pnlEnableMoveCSSStyle">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableMoveCSSStyle" />
+                </div>
+                <div class="col-md-9">
+                    <nop-select asp-for="EnableMoveCSSStyle" asp-items="Model.EnableMoveCSSStyleValues" />
+                    <span asp-validation-for="EnableMoveCSSStyle"></span>
+                </div>
+            </div>
+            <div class="form-group advanced-setting" id="pnlMoveExternalCSSStyle">
+                <div class="col-md-3">
+                    <nop-label asp-for="MoveExternalCSSStyle" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="MoveExternalCSSStyle" />
+                    <span asp-validation-for="MoveExternalCSSStyle"></span>
+                </div>
+            </div>
+            <div class="form-group advanced-setting" id="pnlEnableInlineCSSStyleInHtmlBody">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableInlineCSSStyleInHtmlBody" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableInlineCSSStyleInHtmlBody" />
+                    <span asp-validation-for="EnableInlineCSSStyleInHtmlBody"></span>
+                </div>
+            </div>
+            <nop-nested-setting asp-for="EnableInlineCSSStyleInHtmlBody">
+                <div class="form-group advanced-setting" id="pnnCssInlineMaxBytes">
+                    <div class="col-md-3">
+                        <nop-label asp-for="CssInlineMaxBytes" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="CssInlineMaxBytes" />
+                        <span asp-validation-for="CssInlineMaxBytes"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pncNotInlineCSSStyles">
+                    <div class="col-md-3">
+                        <nop-label asp-for="NotInlineCSSStyles" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-textarea asp-for="NotInlineCSSStyles" />
+                        <span asp-validation-for="NotInlineCSSStyles"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+            <div class="form-group advanced-setting" id="pnlEnableLoadAsyncCSSStyle">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableLoadAsyncCSSStyle" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableLoadAsyncCSSStyle" />
+                    <span asp-validation-for="EnableLoadAsyncCSSStyle"></span>
+                </div>
+            </div>
+            <nop-nested-setting asp-for="EnableLoadAsyncCSSStyle">
+                <div class="form-group advanced-setting" id="pncNotLoadedAsyncCSSStyles">
+                    <div class="col-md-3">
+                        <nop-label asp-for="NotLoadedAsyncCSSStyles" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-textarea asp-for="NotLoadedAsyncCSSStyles" />
+                        <span asp-validation-for="NotLoadedAsyncCSSStyles"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                <b>@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CssStyleUrl.Hint")</b>
+            </p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="CssStyleUrl" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="CssStyleUrl" />
+                    <span asp-validation-for="CssStyleUrl"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" name="minifycssstyle" id="minifycssstyle" class="btn btn-primary">
+                        @T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.CssStyleUrl.Button")
+                    </button>
+                    <text>&nbsp;</text>
+                    <nop-delete-confirmation asp-button-id="minifycssstyle" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <b>@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskCssStyle.Hint")</b>
+                    <br />
+                    <button type="submit" name="startcssminifytask" id="startcssminifytask" class="btn btn-primary">
+                        @T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskCssStyle.Button")
+                    </button>
+                    <text>&nbsp;</text>
+                    <nop-delete-confirmation asp-button-id="startcssminifytask" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>NopCommerce settings</p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-override-store-checkbox asp-for="EnableCssBundling_OverrideForStore" asp-input="EnableCssBundling" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                    <nop-label asp-for="EnableCssBundling" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableCssBundling" />
+                    <span asp-validation-for="EnableCssBundling"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

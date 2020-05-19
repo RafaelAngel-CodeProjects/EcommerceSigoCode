@@ -1,0 +1,138 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#EnableOptimizationJS").click(toggleOptimizationJS);
+            $("#EnableInlineJSInHtmlBody").click(toggleInlineJSInHtmlBody);
+
+            toggleOptimizationJS();
+        });
+
+        function toggleOptimizationJS() {
+            if ($('#EnableOptimizationJS').is(':checked')) {
+                $('#pnJSpanel').show();
+                toggleInlineJSInHtmlBody();
+            }
+            else {
+                $('#pnJSpanel').hide();
+            }
+        }
+
+        function toggleInlineJSInHtmlBody() {
+            if ($('#EnableInlineJSInHtmlBody').is(':checked')) {
+                $('#pncNotInlineJSs, #pnnJSInlineMaxBytes').show();
+            }
+            else {
+                $('#pncNotInlineJSs, #pnnJSInlineMaxBytes').hide();
+            }
+        }
+</script>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Optimization of JavaScript</p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableOptimizationJS" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableOptimizationJS" />
+                    <span asp-validation-for="EnableOptimizationJS"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" id="pnJSpanel">
+        <div class="panel-body">
+            <div class="form-group advanced-setting" id="pnlEnableMoveJS">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableMoveJS" />
+                </div>
+                <div class="col-md-9">
+                    <nop-select asp-for="EnableMoveJS" asp-items="Model.EnableMoveJSValues" />
+                    <span asp-validation-for="EnableMoveJS"></span>
+                </div>
+            </div>
+            <div class="form-group advanced-setting" id="pnlEnableInlineJSInHtmlBody">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableInlineJSInHtmlBody" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableInlineJSInHtmlBody" />
+                    <span asp-validation-for="EnableInlineJSInHtmlBody"></span>
+                </div>
+            </div>
+            <nop-nested-setting asp-for="EnableInlineJSInHtmlBody">
+                <div class="form-group advanced-setting" id="pnnJSInlineMaxBytes">
+                    <div class="col-md-3">
+                        <nop-label asp-for="JSInlineMaxBytes" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="JSInlineMaxBytes" />
+                        <span asp-validation-for="JSInlineMaxBytes"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pncNotInlineJSs">
+                    <div class="col-md-3">
+                        <nop-label asp-for="NotInlineJSs" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-textarea asp-for="NotInlineJSs" />
+                        <span asp-validation-for="NotInlineJSs"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+               <b>@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.JavaScriptUrl.Hint")</b>
+            </p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="JavaScriptUrl" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="JavaScriptUrl" />
+                    <span asp-validation-for="JavaScriptUrl"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" name="minifyjavascript" id="minifyjavascript" class="btn btn-primary">
+                        @T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.JavaScriptUrl.Button")
+                    </button>
+                    <text>&nbsp;</text>
+                    <nop-delete-confirmation asp-button-id="minifyjavascript" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <b>@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskJavaScript.Hint")</b>
+                    <br />
+                    <button type="submit" name="startjsminifytask" id="startjsminifytask" class="btn btn-primary">
+                        @T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskJavaScript.Button")
+                    </button>
+                    <text>&nbsp;</text>
+                    <nop-delete-confirmation asp-button-id="startjsminifytask" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>NopCommerce settings</p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-override-store-checkbox asp-for="EnableJsBundling_OverrideForStore" asp-input="EnableJsBundling" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                    <nop-label asp-for="EnableJsBundling" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableJsBundling" />
+                    <span asp-validation-for="EnableJsBundling"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

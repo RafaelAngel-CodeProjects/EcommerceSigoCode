@@ -1,0 +1,134 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#EnableCDN").click(toggleEnableCDN);
+        $("#EnableCDNPicture").click(toggleEnableCDNPicture);
+        $("#EnableCDNCSS").click(toggleEnableCDNCSS);
+        $("#EnableCDNJS").click(toggleEnableCDNJS);
+
+        toggleEnableCDNPicture();
+        toggleEnableCDNCSS();
+        toggleEnableCDNJS();
+        toggleEnableCDN();
+    });
+
+    function toggleEnableCDN() {
+        if ($('#EnableCDN').is(':checked')) {
+            $('#pnEnableCDN').show();
+        }
+        else {
+            $('#pnEnableCDN').hide();
+        }
+    }
+    function toggleEnableCDNPicture() {
+        if ($('#EnableCDNPicture').is(':checked')) {
+            $('#pnCDNPictureUrl').show();
+        }
+        else {
+            $('#pnCDNPictureUrl').hide();
+        }
+    }
+    function toggleEnableCDNCSS() {
+        if ($('#EnableCDNCSS').is(':checked')) {
+            $('#pnCDNCSSUrl').show();
+        }
+        else {
+            $('#pnCDNCSSUrl').hide();
+        }
+    }
+    function toggleEnableCDNJS() {
+        if ($('#EnableCDNJS').is(':checked')) {
+            $('#pnCDNJSUrl').show();
+        }
+        else {
+            $('#pnCDNJSUrl').hide();
+        }
+    }
+</script>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-override-store-checkbox asp-for="EnableCDN_OverrideForStore" asp-input="EnableCDN" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                    <nop-label asp-for="EnableCDN" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableCDN" />
+                    <span asp-validation-for="EnableCDN"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" id="pnEnableCDN">
+        <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="EnableCDNPicture_OverrideForStore" asp-input="EnableCDNPicture" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="EnableCDNPicture" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="EnableCDNPicture" />
+                        <span asp-validation-for="EnableCDNPicture"></span>
+                    </div>
+                </div>
+            <nop-nested-setting asp-for="EnableCDNPicture">
+                <div class="form-group" id="pnCDNPictureUrl">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="CDNPictureUrl_OverrideForStore" asp-input="CDNPictureUrl" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="CDNPictureUrl" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="CDNPictureUrl" />
+                        <span asp-validation-for="CDNPictureUrl"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="EnableCDNCSS_OverrideForStore" asp-input="EnableCDNCSS" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="EnableCDNCSS" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="EnableCDNCSS" />
+                        <span asp-validation-for="EnableCDNCSS"></span>
+                    </div>
+                </div>
+            <nop-nested-setting asp-for="EnableCDNCSS">
+                <div class="form-group" id="pnCDNCSSUrl">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="CDNCSSUrl_OverrideForStore" asp-input="CDNCSSUrl" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="CDNCSSUrl" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="CDNCSSUrl" />
+                        <span asp-validation-for="CDNCSSUrl"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="EnableCDNJS_OverrideForStore" asp-input="EnableCDNJS" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="EnableCDNJS" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="EnableCDNJS" />
+                        <span asp-validation-for="EnableCDNJS"></span>
+                    </div>
+                </div>
+            <nop-nested-setting asp-for="EnableCDNJS">
+                <div class="form-group" id="pnCDNJSUrl">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="CDNJSUrl_OverrideForStore" asp-input="CDNJSUrl" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="CDNJSUrl" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="CDNJSUrl" />
+                        <span asp-validation-for="CDNJSUrl"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+        </div>
+    </div>
+</div>

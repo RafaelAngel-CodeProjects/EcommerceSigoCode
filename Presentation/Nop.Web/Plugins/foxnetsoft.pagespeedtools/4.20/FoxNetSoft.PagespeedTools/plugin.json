@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "Google Pagespeed Tools",
+  "SystemName": "FoxNetSoft.Pagespeed",
+  "Version": "2.13",
+  "SupportedVersions": [ "4.20" ],
+  "Author": "FoxNetSoft",
+  "DisplayOrder": 1,
+  "FileName": "FoxNetSoft.Plugin.Misc.Pagespeed.dll",
+  "Description": "Minifications, JS and CSS manipulations, etc."
+}

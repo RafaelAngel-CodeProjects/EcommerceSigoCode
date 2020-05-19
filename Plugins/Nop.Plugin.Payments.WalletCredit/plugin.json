@@ -1,0 +1,11 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "Wallet Credit",
+  "SystemName": "Payments.WalletCredit",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.10" ],
+  "Author": "Norkut",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.WalletCredit.dll",
+  "Description": "This plugin allows paying with Credit Amounts"
+}

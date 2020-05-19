@@ -1,0 +1,53 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#EnableOptimizationFonts").click(toggleOptimizationFonts);
+            toggleOptimizationFonts();
+        });
+
+        function toggleOptimizationFonts() {
+            if ($('#EnableOptimizationFonts').is(':checked')) {
+                $('#pnlEnableLoadAsyncFonts, #pnlEnableMoveFonts').show();
+            }
+            else {
+                $('#pnlEnableLoadAsyncFonts, #pnlEnableMoveFonts').hide();
+            }
+        }
+</script>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Optimization of Fonts</p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableOptimizationFonts" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableOptimizationFonts" />
+                    <span asp-validation-for="EnableOptimizationFonts"></span>
+                </div>
+            </div>
+            <nop-nested-setting asp-for="EnableOptimizationFonts">
+                <div class="form-group advanced-setting" id="pnlEnableMoveFonts">
+                    <div class="col-md-3">
+                        <nop-label asp-for="EnableMoveFonts" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-select asp-for="EnableMoveFonts" asp-items="Model.EnableMoveFontsValues" />
+                        <span asp-validation-for="EnableMoveFonts"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pnlEnableLoadAsyncFonts">
+                    <div class="col-md-3">
+                        <nop-label asp-for="EnableLoadAsyncFonts" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="EnableLoadAsyncFonts" />
+                        <span asp-validation-for="EnableLoadAsyncFonts"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+        </div>
+    </div>
+</div>

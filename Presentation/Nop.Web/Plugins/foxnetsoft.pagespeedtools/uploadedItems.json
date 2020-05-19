@@ -1,0 +1,18 @@
+﻿[
+{
+    "Type": "Plugin",
+    "SupportedVersion": "4.00",
+    "DirectoryPath": "4.00/FoxNetSoft.PagespeedTools/",
+    "SystemName": "FoxNetSoft.Pagespeed"
+  },{
+    "Type": "Plugin",
+    "SupportedVersion": "4.10",
+    "DirectoryPath": "4.10/FoxNetSoft.PagespeedTools/",
+    "SystemName": "FoxNetSoft.Pagespeed"
+  },{
+    "Type": "Plugin",
+    "SupportedVersion": "4.20",
+    "DirectoryPath": "4.20/FoxNetSoft.PagespeedTools/",
+    "SystemName": "FoxNetSoft.Pagespeed"
+  }
+]

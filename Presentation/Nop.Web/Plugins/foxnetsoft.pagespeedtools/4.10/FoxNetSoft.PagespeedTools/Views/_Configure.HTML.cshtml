@@ -1,0 +1,98 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#EnableMinifyHtml").click(toggleMinifyHtml);
+            toggleMinifyHtml();
+        });
+
+        function toggleMinifyHtml() {
+            if ($('#EnableMinifyHtml').is(':checked')) {
+                $('#pnlRemoveHtmlComments, #pnlRemoveHtmlCommentsFromScriptsAndStyles, #pnlRemoveCdataSectionsFromScriptsAndStyles, #pnlUseShortDoctype, #pnlRemoveOptionalEndTags, #pncIgnoredUrls, #pnlDisableMinifyHtmlPageSize').show();
+            }
+            else {
+                $('#pnlRemoveHtmlComments, #pnlRemoveHtmlCommentsFromScriptsAndStyles, #pnlRemoveCdataSectionsFromScriptsAndStyles, #pnlUseShortDoctype, #pnlRemoveOptionalEndTags, #pncIgnoredUrls, #pnlDisableMinifyHtmlPageSize').hide();
+            }
+        }
+</script>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Optimization of HTML</p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableMinifyHtml" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableMinifyHtml" />
+                    <span asp-validation-for="EnableMinifyHtml"></span>
+                </div>
+            </div>
+            <nop-nested-setting asp-for="EnableMinifyHtml">
+                <div class="form-group" id="pnlDisableMinifyHtmlPageSize">
+                    <div class="col-md-3">
+                        <nop-label asp-for="DisableMinifyHtmlPageSize" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="DisableMinifyHtmlPageSize" />
+                        <span asp-validation-for="DisableMinifyHtmlPageSize"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pnlRemoveHtmlComments">
+                    <div class="col-md-3">
+                        <nop-label asp-for="RemoveHtmlComments" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="RemoveHtmlComments" />
+                        <span asp-validation-for="RemoveHtmlComments"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pnlRemoveHtmlCommentsFromScriptsAndStyles">
+                    <div class="col-md-3">
+                        <nop-label asp-for="RemoveHtmlCommentsFromScriptsAndStyles" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="RemoveHtmlCommentsFromScriptsAndStyles" />
+                        <span asp-validation-for="RemoveHtmlCommentsFromScriptsAndStyles"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pnlRemoveCdataSectionsFromScriptsAndStyles">
+                    <div class="col-md-3">
+                        <nop-label asp-for="RemoveCdataSectionsFromScriptsAndStyles" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="RemoveCdataSectionsFromScriptsAndStyles" />
+                        <span asp-validation-for="RemoveCdataSectionsFromScriptsAndStyles"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pnlUseShortDoctype">
+                    <div class="col-md-3">
+                        <nop-label asp-for="UseShortDoctype" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="UseShortDoctype" />
+                        <span asp-validation-for="UseShortDoctype"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pnlRemoveOptionalEndTags">
+                    <div class="col-md-3">
+                        <nop-label asp-for="RemoveOptionalEndTags" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="RemoveOptionalEndTags" />
+                        <span asp-validation-for="RemoveOptionalEndTags"></span>
+                    </div>
+                </div>
+                <div class="form-group advanced-setting" id="pncIgnoredUrls">
+                    <div class="col-md-3">
+                        <nop-label asp-for="IgnoredUrls" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-textarea asp-for="IgnoredUrls" />
+                        <span asp-validation-for="IgnoredUrls"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+         </div>
+    </div>
+</div>

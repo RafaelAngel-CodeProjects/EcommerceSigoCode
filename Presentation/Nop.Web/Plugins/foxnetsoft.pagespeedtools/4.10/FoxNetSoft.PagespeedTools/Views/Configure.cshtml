@@ -1,0 +1,84 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+@{
+    Layout = "_AdminLayout";
+    Html.SetActiveMenuItemSystemName("FoxNetSoft.PagespeedTools.Configure");
+    ViewBag.Title = "Google Pagespeed";
+}
+<div class="content">
+    <div class="form-horizontal">
+        @await Component.InvokeAsync("StoreScopeConfiguration")
+        @await Component.InvokeAsync("SettingMode")
+        <form asp-controller="PagespeedSettings" asp-action="Configure" method="post">
+            <div class="content-header clearfix">
+                <h1 class="pull-left">
+                    @T("Admin.Configuration.Settings.GeneralCommon")
+                </h1>
+                <div class="pull-right">
+                    <button type="submit" name="save" class="btn bg-blue">
+                        <i class="fa fa-floppy-o"></i>
+                        @T("Admin.Common.Save")
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="form-horizontal">
+                    <div asp-validation-summary="All"></div>
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p>
+                                    @if (Model.IsRegisted == true)
+                                    {
+                                        @T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.IsRegisted")
+                                    }
+                                    else
+                                    {
+                                        @T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.IsNoRegisted")
+                                        <br />
+                                        <a href="https://www.foxnetsoft.com/noppagespeedtools" target="blank">Buy It Now</a>
+                                    }
+                                </p>
+                                @if (!Model.Is64BitProcess)
+                                {
+                                    <p style="color:red;">
+                                        You use x32 IIS application pool!!
+                                        <br />
+                                        You should use x64 IIS application pool. It's better for performance and plugin will be able to minify pictures.
+                                        <br />
+                                        How to use x64 mode for IIS application pool? Read this <a href="https://www.foxnetsoft.com/howtousex64mode" target="blank">link</a>.
+                                    </p>
+                                }
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <nop-label asp-for="Enable" />
+                                    </div>
+                                    <div class="col-md-9">
+                                        <nop-editor asp-for="Enable" />
+                                        <span asp-validation-for="Enable"></span>
+                                    </div>
+                                </div>
+                                <p>
+                                    Check your page rank <a href="https://developers.google.com/speed/pagespeed/insights/" target="blank">https://developers.google.com/speed/pagespeed/insights/</a><br />
+                                    or <a href="https://gtmetrix.com/" target="blank">https://gtmetrix.com/</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal">
+                    <nop-tabs id="pagespeed-list">
+                        <nop-tab asp-name="tab-pictures" asp-title="@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.Pictures")" asp-default="true">@await Html.PartialAsync("~/Plugins/FoxNetSoft.PagespeedTools/Views/_Configure.Pictures.cshtml")</nop-tab>
+                        <nop-tab asp-name="tab-html" asp-title="@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.HTML")">@await Html.PartialAsync("~/Plugins/FoxNetSoft.PagespeedTools/Views/_Configure.HTML.cshtml")</nop-tab>
+                        <nop-tab asp-name="tab-css" asp-title="@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.CSS")">@await Html.PartialAsync("~/Plugins/FoxNetSoft.PagespeedTools/Views/_Configure.CSS.cshtml")</nop-tab>
+                        <nop-tab asp-name="tab-fonts" asp-title="@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.Fonts")">@await Html.PartialAsync("~/Plugins/FoxNetSoft.PagespeedTools/Views/_Configure.Fonts.cshtml")</nop-tab>
+                        <nop-tab asp-name="tab-javascript" asp-title="@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.JavaScript")">@await Html.PartialAsync("~/Plugins/FoxNetSoft.PagespeedTools/Views/_Configure.JavaScript.cshtml")</nop-tab>
+                        <nop-tab asp-name="tab-cdn" asp-title="@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.CDN")">@await Html.PartialAsync("~/Plugins/FoxNetSoft.PagespeedTools/Views/_Configure.CDN.cshtml")</nop-tab>
+                        <nop-tab asp-name="tab-advanced" asp-title="@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.Advanced")">@await Html.PartialAsync("~/Plugins/FoxNetSoft.PagespeedTools/Views/_Configure.Advanced.cshtml")</nop-tab>
+                        <nop-tab asp-name="tab-license" asp-title="@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.Tab.License")">@await Html.PartialAsync("~/Plugins/FoxNetSoft.PagespeedTools/Views/_Configure.License.cshtml")</nop-tab>
+                    </nop-tabs>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

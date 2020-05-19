@@ -1,0 +1,63 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#showDebugInfo").click(toggleshowDebugInfo);
+        toggleshowDebugInfo();
+    });
+
+    function toggleshowDebugInfo() {
+        if ($('#showDebugInfo').is(':checked')) {
+            $('#pnlclearlogfile, #pnlgetlogfile').show();
+        }
+        else {
+            $('#pnlclearlogfile, #pnlgetlogfile').hide();
+        }
+    }
+</script>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="showDebugInfo" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="showDebugInfo" />
+                    <span asp-validation-for="showDebugInfo"></span>
+                    <div id="pnlclearlogfile">
+                        <a href="@Url.Action("ClearLogFile")" class="k-button">@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.ClearLogFile")</a>
+                    </div>
+                    <div id="pnlgetlogfile">
+                        <a href="@Url.Action("GetLogFile")" class="k-button">@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.GetLogFile")</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="StoreUrl" />
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control text-box single-line" id="StoreUrl" name="StoreUrl" value="@Model.StoreUrl" type="text" readonly="readonly">
+                    <span asp-validation-for="StoreUrl"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="SerialNumber" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="SerialNumber" />
+                    <span asp-validation-for="SerialNumber"></span>
+                </div>
+            </div>
+            <p>
+                Installation and configuring plug-in at Youtube <a href="http://www.youtube.com/foxnetsoft" target="blank">www.youtube.com/foxnetsoft</a>
+                <br />
+                Installation and configuring plug-in at our site <a href="https://www.foxnetsoft.com/documentation-noppagespeedtools" target="blank">https://www.foxnetsoft.com/documentation-noppagespeedtools</a>
+                <br />
+                <a href="https://www.foxnetsoft.com" target="blank">www.foxnetsoft.com</a>
+            </p>
+        </div>
+    </div>
+</div>

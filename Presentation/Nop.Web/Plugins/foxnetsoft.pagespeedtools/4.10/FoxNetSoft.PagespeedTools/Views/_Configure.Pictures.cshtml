@@ -1,0 +1,97 @@
+﻿@model FoxNetSoft.Plugin.Misc.Pagespeed.Models.PagespeedSettingsModel
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#EnableMinifyPicture").click(toggleMinifyPicture);
+            toggleMinifyPicture();
+        });
+
+        function toggleMinifyPicture() {
+            if ($('#EnableMinifyPicture').is(':checked')) {
+                $('#pndServeImagesInNextGenFormats, #pndLastPictureOptimizationDateTimeUtc, #pncPictureFolders').show();
+            }
+            else {
+                $('#pndServeImagesInNextGenFormats, #pndLastPictureOptimizationDateTimeUtc, #pncPictureFolders').hide();
+            }
+        }
+</script>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="EnableMinifyPicture" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="EnableMinifyPicture" />
+                    <span asp-validation-for="EnableMinifyPicture"></span>
+                </div>
+            </div>
+            <nop-nested-setting asp-for="EnableMinifyPicture">
+                <div class="form-group" id="pndServeImagesInNextGenFormats">
+                    <div class="col-md-3">
+                        <nop-label asp-for="ServeImagesInNextGenFormats" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="ServeImagesInNextGenFormats" />
+                        <span asp-validation-for="ServeImagesInNextGenFormats"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="pndLastPictureOptimizationDateTimeUtc">
+                    <div class="col-md-3">
+                        <nop-label asp-for="LastPictureOptimizationDateTimeUtc" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="LastPictureOptimizationDateTimeUtc" />
+                        <span asp-validation-for="LastPictureOptimizationDateTimeUtc"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="pncPictureFolders">
+                    <div class="col-md-3">
+                        <nop-label asp-for="PictureFolders" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-textarea asp-for="PictureFolders" />
+                        <span asp-validation-for="PictureFolders"></span>
+                    </div>
+                </div>
+            </nop-nested-setting>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                <b>@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PictureUrl.Hint")</b>
+            </p>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <nop-label asp-for="PictureUrl" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="PictureUrl" />
+                    <span asp-validation-for="PictureUrl"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" name="minifypicture" id="minifypicture" class="btn btn-primary">
+                        @T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.PictureUrl.Button")
+                    </button>
+                    <text>&nbsp;</text>
+                    <nop-delete-confirmation asp-button-id="minifypicture" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <b>@T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskPicture.Hint")</b>
+                    <br />
+                    <button type="submit" name="startpicturetask" id="startpicturetask" class="btn btn-primary">
+                        @T("Admin.FoxNetSoft.Plugin.Misc.Pagespeed.TaskPicture.Button")
+                    </button>
+                    <text>&nbsp;</text>
+                    <nop-delete-confirmation asp-button-id="startpicturetask" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
