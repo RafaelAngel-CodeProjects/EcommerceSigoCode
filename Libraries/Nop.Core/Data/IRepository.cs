@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Nop.Core.Data
-{
+namespace Nop.Core.Data {
     /// <summary>
     /// Represents an entity repository
     /// </summary>
     /// <typeparam name="TEntity">Entity type</typeparam>
-    public partial interface IRepository<TEntity> where TEntity : BaseEntity
-    {
+    public partial interface IRepository<TEntity> where TEntity : BaseEntity {
         #region Methods
 
         /// <summary>

@@ -1,14 +1,13 @@
 using System;
 using System.Net;
+
 using StackExchange.Redis;
 
-namespace Nop.Core.Caching
-{
+namespace Nop.Core.Caching {
     /// <summary>
     /// Represents Redis connection wrapper
     /// </summary>
-    public interface IRedisConnectionWrapper : IDisposable
-    {
+    public interface IRedisConnectionWrapper : IDisposable {
         /// <summary>
         /// Obtain an interactive connection to a database inside Redis
         /// </summary>

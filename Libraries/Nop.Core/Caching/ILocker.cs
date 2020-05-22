@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace Nop.Core.Caching
-{
-    public interface ILocker
-    {
+namespace Nop.Core.Caching {
+    public interface ILocker {
         /// <summary>
         /// Perform some action with exclusive lock
         /// </summary>

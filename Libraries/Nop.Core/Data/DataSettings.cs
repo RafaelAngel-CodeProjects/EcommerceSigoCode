@@ -11,10 +11,7 @@ namespace Nop.Core.Data
     {
         #region Ctor
 
-        public DataSettings()
-        {
-            RawDataSettings = new Dictionary<string, string>();
-        }
+        public DataSettings() => RawDataSettings = new Dictionary<string, string>();
 
         #endregion
 

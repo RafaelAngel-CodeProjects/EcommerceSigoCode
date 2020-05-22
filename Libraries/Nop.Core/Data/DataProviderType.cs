@@ -1,12 +1,10 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Nop.Core.Data
-{
+namespace Nop.Core.Data {
     /// <summary>
     /// Represents data provider type enumeration
     /// </summary>
-    public enum DataProviderType
-    {
+    public enum DataProviderType {
         /// <summary>
         /// Unknown
         /// </summary>

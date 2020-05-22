@@ -1,14 +1,12 @@
 ﻿using System.Data.Common;
 
-namespace Nop.Core.Data
-{
+namespace Nop.Core.Data {
     /// <summary>
     /// Represents a data provider
     /// </summary>
-    public partial interface IDataProvider
-    {
+    public partial interface IDataProvider {
         #region Methods
-        
+
         /// <summary>
         /// Initialize database
         /// </summary>
