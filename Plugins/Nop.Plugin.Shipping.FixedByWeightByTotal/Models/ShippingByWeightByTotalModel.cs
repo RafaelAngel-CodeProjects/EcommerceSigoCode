@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Nop.Web.Framework.Mvc.ModelBinding;
-using Nop.Web.Framework.Models;
 
-namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Models
-{
-    public class ShippingByWeightByTotalModel : BaseNopEntityModel
-    {
-        public ShippingByWeightByTotalModel()
-        {
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+using Nop.Web.Framework.Models;
+using Nop.Web.Framework.Mvc.ModelBinding;
+
+namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Models {
+    public class ShippingByWeightByTotalModel : BaseNopEntityModel {
+        public ShippingByWeightByTotalModel() {
             AvailableCountries = new List<SelectListItem>();
             AvailableStates = new List<SelectListItem>();
             AvailableShippingMethods = new List<SelectListItem>();
@@ -70,6 +69,9 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Models
 
         [NopResourceDisplayName("Plugins.Shipping.FixedByWeightByTotal.Fields.DataHtml")]
         public string DataHtml { get; set; }
+
+        [NopResourceDisplayName("Plugins.Shipping.FixedByWeightByTotal.Fields.MontoDolar")]
+        public decimal MontoDolar { get; set; }
 
         public string PrimaryStoreCurrencyCode { get; set; }
         public string BaseWeightIn { get; set; }

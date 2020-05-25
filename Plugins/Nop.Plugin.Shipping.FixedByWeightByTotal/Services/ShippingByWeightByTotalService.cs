@@ -1,17 +1,17 @@
 using System;
 using System.Linq;
+using System.Collections.Generic;
+
 using Nop.Core;
 using Nop.Core.Caching;
 using Nop.Core.Data;
 using Nop.Plugin.Shipping.FixedByWeightByTotal.Domain;
 
-namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
-{
+namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services {
     /// <summary>
     /// Represents service shipping by weight service implementation
     /// </summary>
-    public partial class ShippingByWeightByTotalService : IShippingByWeightByTotalService
-    {
+    public partial class ShippingByWeightByTotalService : IShippingByWeightByTotalService {
         #region Constants
 
         /// <summary>
@@ -36,10 +36,9 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         #region Ctor
 
         public ShippingByWeightByTotalService(IRepository<ShippingByWeightByTotalRecord> sbwtRepository,
-            ICacheManager cacheManager)
-        {
-            this._sbwtRepository = sbwtRepository;
-            this._cacheManager = cacheManager;
+            ICacheManager cacheManager) {
+            _sbwtRepository = sbwtRepository;
+            _cacheManager = cacheManager;
         }
 
         #endregion
@@ -52,16 +51,14 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// <param name="pageIndex">Page index</param>
         /// <param name="pageSize">Page size</param>
         /// <returns>List of the shipping by weight record</returns>
-        public virtual IPagedList<ShippingByWeightByTotalRecord> GetAll(int pageIndex = 0, int pageSize = int.MaxValue)
-        {
-            var key = string.Format(SHIPPINGBYWEIGHTBYTOTAL_ALL_KEY, pageIndex, pageSize);
-            return _cacheManager.Get(key, () =>
-            {
-                var query = from sbw in _sbwtRepository.Table
-                            orderby sbw.StoreId, sbw.CountryId, sbw.StateProvinceId, sbw.Zip, sbw.ShippingMethodId, sbw.WeightFrom, sbw.OrderSubtotalFrom
-                            select sbw;
+        public virtual IPagedList<ShippingByWeightByTotalRecord> GetAll(int pageIndex = 0, int pageSize = int.MaxValue) {
+            string key = string.Format(SHIPPINGBYWEIGHTBYTOTAL_ALL_KEY, pageIndex, pageSize);
+            return _cacheManager.Get(key, () => {
+                IOrderedQueryable<ShippingByWeightByTotalRecord> query = from sbw in _sbwtRepository.Table
+                                                                         orderby sbw.StoreId, sbw.CountryId, sbw.StateProvinceId, sbw.Zip, sbw.ShippingMethodId, sbw.WeightFrom, sbw.OrderSubtotalFrom
+                                                                         select sbw;
 
-                var records = new PagedList<ShippingByWeightByTotalRecord>(query, pageIndex, pageSize);
+                PagedList<ShippingByWeightByTotalRecord> records = new PagedList<ShippingByWeightByTotalRecord>(query, pageIndex, pageSize);
                 return records;
             });
         }
@@ -81,50 +78,49 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// <param name="pageSize">Page size</param>
         /// <returns>List of the shipping by weight record</returns>
         public virtual IPagedList<ShippingByWeightByTotalRecord> FindRecords(int shippingMethodId, int storeId, int warehouseId,
-            int countryId, int stateProvinceId, string zip, decimal? weight, decimal? orderSubtotal, int pageIndex, int pageSize)
-        {
+            int countryId, int stateProvinceId, string zip, decimal? weight, decimal? orderSubtotal, int pageIndex, int pageSize) {
             zip = zip?.Trim() ?? string.Empty;
 
             //filter by weight and shipping method
-            var existingRates = GetAll()
-                .Where(sbw => sbw.ShippingMethodId == shippingMethodId && (!weight.HasValue || weight >= sbw.WeightFrom && weight <= sbw.WeightTo))
+            List<ShippingByWeightByTotalRecord> existingRates = GetAll()
+                .Where(sbw => sbw.ShippingMethodId == shippingMethodId && (!weight.HasValue || (weight >= sbw.WeightFrom && weight <= sbw.WeightTo)))
                 .ToList();
 
             //filter by order subtotal
-            var matchedBySubtotal = !orderSubtotal.HasValue ? existingRates :
+            IEnumerable<ShippingByWeightByTotalRecord> matchedBySubtotal = !orderSubtotal.HasValue ? existingRates :
                 existingRates.Where(sbw => orderSubtotal >= sbw.OrderSubtotalFrom && orderSubtotal <= sbw.OrderSubtotalTo);
 
             //filter by store
-            var matchedByStore = storeId == 0
+            IEnumerable<ShippingByWeightByTotalRecord> matchedByStore = storeId == 0
                 ? matchedBySubtotal
                 : matchedBySubtotal.Where(r => r.StoreId == storeId || r.StoreId == 0);
 
             //filter by warehouse
-            var matchedByWarehouse = warehouseId == 0
+            IEnumerable<ShippingByWeightByTotalRecord> matchedByWarehouse = warehouseId == 0
                 ? matchedByStore
                 : matchedByStore.Where(r => r.WarehouseId == warehouseId || r.WarehouseId == 0);
 
             //filter by country
-            var matchedByCountry = countryId == 0
+            IEnumerable<ShippingByWeightByTotalRecord> matchedByCountry = countryId == 0
                 ? matchedByWarehouse
                 : matchedByWarehouse.Where(r => r.CountryId == countryId || r.CountryId == 0);
 
             //filter by state/province
-            var matchedByStateProvince = stateProvinceId == 0
+            IEnumerable<ShippingByWeightByTotalRecord> matchedByStateProvince = stateProvinceId == 0
                 ? matchedByCountry
                 : matchedByCountry.Where(r => r.StateProvinceId == stateProvinceId || r.StateProvinceId == 0);
 
             //filter by zip
-            var matchedByZip = string.IsNullOrEmpty(zip)
+            IEnumerable<ShippingByWeightByTotalRecord> matchedByZip = string.IsNullOrEmpty(zip)
                 ? matchedByStateProvince
                 : matchedByStateProvince.Where(r => string.IsNullOrEmpty(r.Zip) || r.Zip.Equals(zip, StringComparison.InvariantCultureIgnoreCase));
 
             //sort from particular to general, more particular cases will be the first
-            var foundRecords = matchedByZip.OrderBy(r => r.StoreId == 0).ThenBy(r => r.WarehouseId == 0)
+            IOrderedEnumerable<ShippingByWeightByTotalRecord> foundRecords = matchedByZip.OrderBy(r => r.StoreId == 0).ThenBy(r => r.WarehouseId == 0)
                 .ThenBy(r => r.CountryId == 0).ThenBy(r => r.StateProvinceId == 0)
                 .ThenBy(r => string.IsNullOrEmpty(r.Zip));
 
-            var records = new PagedList<ShippingByWeightByTotalRecord>(foundRecords.AsQueryable(), pageIndex, pageSize);
+            PagedList<ShippingByWeightByTotalRecord> records = new PagedList<ShippingByWeightByTotalRecord>(foundRecords.AsQueryable(), pageIndex, pageSize);
             return records;
         }
 
@@ -140,10 +136,9 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// <param name="weight">Weight</param>
         /// <param name="orderSubtotal">Order subtotal</param>
         /// <returns>Shipping by weight record</returns>
-        public virtual ShippingByWeightByTotalRecord FindRecords(int shippingMethodId, int storeId, int warehouseId, 
-            int countryId, int stateProvinceId, string zip, decimal weight, decimal orderSubtotal)
-        {
-            var foundRecords = FindRecords(shippingMethodId, storeId, warehouseId, countryId, stateProvinceId, zip, weight, orderSubtotal, 0, int.MaxValue);
+        public virtual ShippingByWeightByTotalRecord FindRecords(int shippingMethodId, int storeId, int warehouseId,
+            int countryId, int stateProvinceId, string zip, decimal weight, decimal orderSubtotal) {
+            IPagedList<ShippingByWeightByTotalRecord> foundRecords = FindRecords(shippingMethodId, storeId, warehouseId, countryId, stateProvinceId, zip, weight, orderSubtotal, 0, int.MaxValue);
 
             return foundRecords.FirstOrDefault();
         }
@@ -153,20 +148,13 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// </summary>
         /// <param name="shippingByWeightRecordId">Record identifier</param>
         /// <returns>Shipping by weight record</returns>
-        public virtual ShippingByWeightByTotalRecord GetById(int shippingByWeightRecordId)
-        {
-            if (shippingByWeightRecordId == 0)
-                return null;
-
-            return _sbwtRepository.GetById(shippingByWeightRecordId);
-        }
+        public virtual ShippingByWeightByTotalRecord GetById(int shippingByWeightRecordId) => shippingByWeightRecordId == 0 ? null : _sbwtRepository.GetById(shippingByWeightRecordId);
 
         /// <summary>
         /// Insert the shipping by weight record
         /// </summary>
         /// <param name="shippingByWeightRecord">Shipping by weight record</param>
-        public virtual void InsertShippingByWeightRecord(ShippingByWeightByTotalRecord shippingByWeightRecord)
-        {
+        public virtual void InsertShippingByWeightRecord(ShippingByWeightByTotalRecord shippingByWeightRecord) {
             if (shippingByWeightRecord == null)
                 throw new ArgumentNullException(nameof(shippingByWeightRecord));
 
@@ -179,8 +167,7 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// Update the shipping by weight record
         /// </summary>
         /// <param name="shippingByWeightRecord">Shipping by weight record</param>
-        public virtual void UpdateShippingByWeightRecord(ShippingByWeightByTotalRecord shippingByWeightRecord)
-        {
+        public virtual void UpdateShippingByWeightRecord(ShippingByWeightByTotalRecord shippingByWeightRecord) {
             if (shippingByWeightRecord == null)
                 throw new ArgumentNullException(nameof(shippingByWeightRecord));
 
@@ -193,8 +180,7 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// Delete the shipping by weight record
         /// </summary>
         /// <param name="shippingByWeightRecord">Shipping by weight record</param>
-        public virtual void DeleteShippingByWeightRecord(ShippingByWeightByTotalRecord shippingByWeightRecord)
-        {
+        public virtual void DeleteShippingByWeightRecord(ShippingByWeightByTotalRecord shippingByWeightRecord) {
             if (shippingByWeightRecord == null)
                 throw new ArgumentNullException(nameof(shippingByWeightRecord));
 
