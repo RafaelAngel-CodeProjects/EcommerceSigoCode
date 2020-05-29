@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Collections.Generic;
 
 using Nop.Core;
 using Nop.Core.Caching;
@@ -82,36 +81,36 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services {
             zip = zip?.Trim() ?? string.Empty;
 
             //filter by weight and shipping method
-            List<ShippingByWeightByTotalRecord> existingRates = GetAll()
+            System.Collections.Generic.List<ShippingByWeightByTotalRecord> existingRates = GetAll()
                 .Where(sbw => sbw.ShippingMethodId == shippingMethodId && (!weight.HasValue || (weight >= sbw.WeightFrom && weight <= sbw.WeightTo)))
                 .ToList();
 
             //filter by order subtotal
-            IEnumerable<ShippingByWeightByTotalRecord> matchedBySubtotal = !orderSubtotal.HasValue ? existingRates :
+            System.Collections.Generic.IEnumerable<ShippingByWeightByTotalRecord> matchedBySubtotal = !orderSubtotal.HasValue ? existingRates :
                 existingRates.Where(sbw => orderSubtotal >= sbw.OrderSubtotalFrom && orderSubtotal <= sbw.OrderSubtotalTo);
 
             //filter by store
-            IEnumerable<ShippingByWeightByTotalRecord> matchedByStore = storeId == 0
+            System.Collections.Generic.IEnumerable<ShippingByWeightByTotalRecord> matchedByStore = storeId == 0
                 ? matchedBySubtotal
                 : matchedBySubtotal.Where(r => r.StoreId == storeId || r.StoreId == 0);
 
             //filter by warehouse
-            IEnumerable<ShippingByWeightByTotalRecord> matchedByWarehouse = warehouseId == 0
+            System.Collections.Generic.IEnumerable<ShippingByWeightByTotalRecord> matchedByWarehouse = warehouseId == 0
                 ? matchedByStore
                 : matchedByStore.Where(r => r.WarehouseId == warehouseId || r.WarehouseId == 0);
 
             //filter by country
-            IEnumerable<ShippingByWeightByTotalRecord> matchedByCountry = countryId == 0
+            System.Collections.Generic.IEnumerable<ShippingByWeightByTotalRecord> matchedByCountry = countryId == 0
                 ? matchedByWarehouse
                 : matchedByWarehouse.Where(r => r.CountryId == countryId || r.CountryId == 0);
 
             //filter by state/province
-            IEnumerable<ShippingByWeightByTotalRecord> matchedByStateProvince = stateProvinceId == 0
+            System.Collections.Generic.IEnumerable<ShippingByWeightByTotalRecord> matchedByStateProvince = stateProvinceId == 0
                 ? matchedByCountry
                 : matchedByCountry.Where(r => r.StateProvinceId == stateProvinceId || r.StateProvinceId == 0);
 
             //filter by zip
-            IEnumerable<ShippingByWeightByTotalRecord> matchedByZip = string.IsNullOrEmpty(zip)
+            System.Collections.Generic.IEnumerable<ShippingByWeightByTotalRecord> matchedByZip = string.IsNullOrEmpty(zip)
                 ? matchedByStateProvince
                 : matchedByStateProvince.Where(r => string.IsNullOrEmpty(r.Zip) || r.Zip.Equals(zip, StringComparison.InvariantCultureIgnoreCase));
 
